@@ -742,7 +742,8 @@
             color: var(--color-accent);
         }
 
-        .project-card:hover .project-preview svg {
+        .project-card:hover .project-preview svg,
+        .project-card:hover .project-preview img {
             transform: scale(1.03);
         }
 
@@ -751,7 +752,8 @@
         }
 
         .project-preview {
-            height: 200px;
+            aspect-ratio: 16/9;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -759,8 +761,17 @@
             position: relative;
         }
 
-        .project-preview svg {
+        .project-preview svg,
+        .project-preview img {
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            object-position: center;
         }
 
         .project-content {
@@ -1830,7 +1841,7 @@
                 }
             }
         </style>
-        <div class="about-illustration" style="display:flex;justify-content:center; align-items:center;padding:20px 0;">
+        <div class="about-illustration" style="display:flex; flex-direction:column; justify-content:center; align-items:center;padding:30px 0;">
             <svg style="width:100%;max-width:280px;height:auto;" viewbox="0 0 280 200"
                 xmlns="http://www.w3.org/2000/svg">
                 <rect fill="#111" height="100" rx="8" stroke="#e63946" stroke-width="2" width="160" x="60" y="30">
@@ -1867,6 +1878,9 @@
                 <circle cx="30" cy="140" fill="#e63946" opacity="0.3" r="3"></circle>
                 <circle cx="250" cy="150" fill="#111" opacity="0.2" r="3"></circle>
             </svg>
+            <p style="margin-top: 20px; font-style: italic; color: var(--color-text-secondary); font-size: 0.95rem; text-align: center; max-width: 400px;">
+                "First, solve the problem. Then, write the code."
+            </p>
         </div>
     </section>
     <!-- Transition Divider -->
@@ -1881,14 +1895,7 @@
             <!-- 01 Exam Alchemy -->
             <div class="project-card reveal stagger-1 hover-target">
                 <div class="project-preview" style="background-color: #fff7ed;">
-                    <svg fill="none" height="120" viewbox="0 0 100 100" width="120" xmlns="http://www.w3.org/2000/svg">
-                        <rect height="40" rx="2" stroke="#f97316" stroke-width="4" width="60" x="20" y="30"></rect>
-                        <path d="M10 75h80" stroke="#111" stroke-linecap="round" stroke-width="4"></path>
-                        <path d="M30 40h40M30 50h30M30 60h20" stroke="#111" stroke-linecap="round" stroke-width="3">
-                        </path>
-                        <text fill="#f97316" font-family="Inter" font-size="12" font-weight="900" x="70" y="25">AI
-                            ✦</text>
-                    </svg>
+                    <img src="./assets/images/exam_alchemy.png" alt="Exam Alchemy Preview">
                 </div>
                 <div class="project-content">
                     <div class="project-top">
@@ -1912,15 +1919,7 @@
             <!-- 02 Safekart -->
             <div class="project-card reveal stagger-2 hover-target">
                 <div class="project-preview" style="background-color: #f0fdf4;">
-                    <svg fill="none" height="120" viewbox="0 0 100 100" width="120" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M30 40v-10a20 20 0 0140 0v10" stroke="#111" stroke-linecap="round" stroke-width="4">
-                        </path>
-                        <rect height="45" rx="4" stroke="#111" stroke-width="4" width="60" x="20" y="40"></rect>
-                        <path d="M50 55l-5 5 15-15" stroke="#16a34a" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="4"></path>
-                        <circle cx="75" cy="40" fill="#16a34a" r="12"></circle>
-                        <path d="M70 40l3 3 6-6" stroke="#fff" stroke-linecap="round" stroke-width="2"></path>
-                    </svg>
+                    <img src="./assets/images/safekart.png" alt="Safekart Preview">
                 </div>
                 <div class="project-content">
                     <div class="project-top">
@@ -1944,18 +1943,7 @@
             <!-- 03 Event Attendance -->
             <div class="project-card reveal stagger-1 hover-target">
                 <div class="project-preview" style="background-color: #eff6ff;">
-                    <svg fill="none" height="120" viewbox="0 0 100 100" width="120" xmlns="http://www.w3.org/2000/svg">
-                        <rect height="55" rx="4" stroke="#111" stroke-width="4" width="60" x="20" y="25"></rect>
-                        <path d="M35 15v15M65 15v15" stroke="#2563eb" stroke-linecap="round" stroke-width="4"></path>
-                        <path d="M20 45h60" stroke="#111" stroke-width="4"></path>
-                        <circle cx="40" cy="60" fill="#2563eb" r="3"></circle>
-                        <circle cx="50" cy="60" fill="#2563eb" r="3"></circle>
-                        <circle cx="60" cy="60" fill="#2563eb" r="3"></circle>
-                        <circle cx="40" cy="70" fill="#2563eb" r="3"></circle>
-                        <circle cx="50" cy="70" fill="#2563eb" r="3"></circle>
-                        <circle cx="80" cy="80" fill="#fff" r="15" stroke="#111" stroke-width="3"></circle>
-                        <path d="M80 73v7l4 3" stroke="#111" stroke-linecap="round" stroke-width="3"></path>
-                    </svg>
+                    <img src="./assets/images/event_attendance.png" alt="Event Attendance System Preview">
                 </div>
                 <div class="project-content">
                     <div class="project-top">
@@ -1979,13 +1967,7 @@
             <!-- 04 Certificate Generator -->
             <div class="project-card reveal stagger-2 hover-target">
                 <div class="project-preview" style="background-color: #fdf4ff;">
-                    <svg fill="none" height="120" viewbox="0 0 100 100" width="120" xmlns="http://www.w3.org/2000/svg">
-                        <rect height="50" rx="2" stroke="#111" stroke-width="4" width="70" x="15" y="25"></rect>
-                        <rect height="30" stroke="#9333ea" stroke-dasharray="4 4" stroke-width="2" width="50" x="25"
-                            y="35"></rect>
-                        <path d="M70 65l-5 15-5-3-5 3 5-15" fill="#9333ea"></path>
-                        <circle cx="70" cy="60" fill="#111" r="8"></circle>
-                    </svg>
+                    <img src="./assets/images/certificate_generator.png" alt="Certificate Generator Preview">
                 </div>
                 <div class="project-content">
                     <div class="project-top">
@@ -2009,15 +1991,7 @@
             <!-- 05 SkillFinder -->
             <div class="project-card reveal stagger-1 hover-target">
                 <div class="project-preview" style="background-color: #fff1f2;">
-                    <svg fill="none" height="120" viewbox="0 0 100 100" width="120" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="20" fill="#fff" r="8" stroke="#111" stroke-width="4"></circle>
-                        <circle cx="30" cy="50" fill="#fff" r="8" stroke="#e63946" stroke-width="4"></circle>
-                        <circle cx="70" cy="50" fill="#fff" r="8" stroke="#e63946" stroke-width="4"></circle>
-                        <circle cx="20" cy="80" fill="#fff" r="6" stroke="#111" stroke-width="3"></circle>
-                        <circle cx="40" cy="80" fill="#fff" r="6" stroke="#111" stroke-width="3"></circle>
-                        <path d="M45 26l-12 18M55 26l12 18M27 57l-6 17M33 57l6 17" stroke="#111" stroke-linecap="round"
-                            stroke-width="3"></path>
-                    </svg>
+                    <img src="./assets/images/skillfinder.png" alt="SkillFinder Preview">
                 </div>
                 <div class="project-content">
                     <div class="project-top">
@@ -2485,8 +2459,9 @@
                 </div>
             </div>
         </div>
-        <svg style="width:100%;max-width:200px;height:auto;opacity:0.7;display:block;margin:0 auto;margin-top:20px;"
-            viewbox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <div class="achievements-illustration" style="display:flex; flex-direction:column; justify-content:center; align-items:center; padding: 20px 0; margin-top: 20px;">
+            <svg style="width:100%;max-width:200px;height:auto;opacity:0.7;display:block;"
+                viewbox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
             <rect fill="#e63946" height="25" opacity="0.7" rx="3" width="20" x="20" y="50"></rect>
             <rect fill="#111" height="40" opacity="0.5" rx="3" width="20" x="50" y="35"></rect>
             <rect fill="#e63946" height="55" opacity="0.6" rx="3" width="20" x="80" y="20"></rect>
@@ -2501,6 +2476,10 @@
             <circle cx="120" cy="30" fill="#e63946" r="3"></circle>
             <circle cx="150" cy="10" fill="#e63946" r="3"></circle>
         </svg>
+        <p style="margin-top: 20px; font-style: italic; color: var(--color-text-secondary); font-size: 0.95rem; text-align: center; max-width: 400px;">
+            "Every great developer got there by solving problems they were unqualified to solve."
+        </p>
+        </div>
     </section>
     <!-- Transition Divider -->
     <div class="text-divider reveal"><span class="text-divider-inner">· CERTIFICATIONS · CERTIFICATIONS ·</span></div>
@@ -3160,6 +3139,221 @@
             }, 3500);
         })();
     </script>
+<style>
+/* Background Animation Styles */
+#bg-animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+.falling-wrapper {
+    position: absolute;
+    top: -400px;
+    pointer-events: none;
+    perspective: 1000px;
+}
+.falling-card {
+    width: 240px;
+    height: 320px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.falling-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    z-index: 1;
+}
+.falling-card span {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    font-family: var(--font-primary);
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+</style>
+<script>
+(function() {
+    const container = document.createElement('div');
+    container.id = 'bg-animation-container';
+    document.body.prepend(container);
+
+    const quotes = [
+        "The only way to do great work is to love what you do.",
+        "First, solve the problem. Then, write the code.",
+        "Code is like humor. When you have to explain it, it's bad.",
+        "Make it work, make it right, make it fast.",
+        "Talk is cheap. Show me the code.",
+        "Innovation distinguishes between a leader and a follower.",
+        "Stay hungry, stay foolish.",
+        "Simplicity is the soul of efficiency.",
+        "Every great developer got there by solving problems they were unqualified to solve.",
+        "I write code, so my computer can do my math."
+    ];
+
+    let mouseX = -1000;
+    let mouseY = -1000;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function spawnCard() {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'falling-wrapper';
+        wrapper.style.left = (Math.random() * (window.innerWidth - 300) + 30) + 'px';
+        
+        const card = document.createElement('div');
+        card.className = 'falling-card';
+        card.style.backgroundImage = `url(https://picsum.photos/300/400?random=${Math.random()})`;
+        
+        const quote = quotes[Math.floor(Math.random() * quotes.length)];
+        card.innerHTML = `<span>"${quote}"</span>`;
+        
+        wrapper.appendChild(card);
+        container.appendChild(wrapper);
+
+        // Falling & bouncing animation for the wrapper
+        gsap.to(wrapper, {
+            y: window.innerHeight - 340, // bounce near bottom
+            duration: 4 + Math.random() * 2,
+            ease: "bounce.out",
+            onComplete: () => {
+                gsap.to(wrapper, {
+                    opacity: 0,
+                    scale: 0.9,
+                    duration: 1,
+                    delay: 0.5,
+                    onComplete: () => wrapper.remove()
+                });
+            }
+        });
+
+        // Rotation animation
+        gsap.to(wrapper, {
+            rotation: (Math.random() - 0.5) * 30,
+            duration: 4 + Math.random() * 2,
+            ease: "power1.inOut"
+        });
+
+        // Mouse repulsion and collision effect
+        const cardId = setInterval(() => {
+            if(!wrapper.parentNode) {
+                clearInterval(cardId);
+                return;
+            }
+            const rect = wrapper.getBoundingClientRect();
+            const cardX = rect.left + rect.width / 2;
+            const cardY = rect.top + rect.height / 2;
+            
+            // 1. Text Collision Detection (Remove if overlapping text)
+            const pointsToCheck = [
+                {x: cardX, y: cardY},
+                {x: rect.left + 40, y: rect.top + 40},
+                {x: rect.right - 40, y: rect.top + 40},
+                {x: rect.left + 40, y: rect.bottom - 40},
+                {x: rect.right - 40, y: rect.bottom - 40}
+            ];
+            
+            let hitText = false;
+            for (let pt of pointsToCheck) {
+                const el = document.elementFromPoint(pt.x, pt.y);
+                if (el) {
+                    const tag = el.tagName.toLowerCase();
+                    const textTags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'a', 'button', 'li', 'strong', 'b', 'svg'];
+                    if (textTags.includes(tag) || 
+                        el.closest('.project-card') || 
+                        el.closest('.quick-fact') || 
+                        el.closest('.tech-badge')) {
+                        hitText = true;
+                        break;
+                    }
+                }
+            }
+
+            if (hitText) {
+                if (!card.isHiding) {
+                    card.isHiding = true;
+                    gsap.to(card, {
+                        opacity: 0,
+                        scale: 0.7,
+                        duration: 0.2,
+                        overwrite: "auto"
+                    });
+                }
+            } else {
+                if (card.isHiding) {
+                    card.isHiding = false;
+                    gsap.to(card, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.2,
+                        overwrite: "auto"
+                    });
+                }
+            }
+
+            // 2. Mouse Repulsion Effect
+            const distX = cardX - mouseX;
+            const distY = cardY - mouseY;
+            const distance = Math.sqrt(distX * distX + distY * distY);
+            
+            const maxDist = 300;
+            if (distance < maxDist) {
+                const force = (maxDist - distance) / maxDist;
+                const moveX = (distX / distance) * force * 150; 
+                const moveY = (distY / distance) * force * 150;
+                
+                gsap.to(card, {
+                    x: moveX,
+                    y: moveY,
+                    rotationX: -moveY * 0.1,
+                    rotationY: moveX * 0.1,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            } else {
+                gsap.to(card, {
+                    x: 0,
+                    y: 0,
+                    rotationX: 0,
+                    rotationY: 0,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+            }
+        }, 50);
+    }
+
+    // Spawn periodically
+    setInterval(spawnCard, 3500);
+    setTimeout(spawnCard, 1000);
+
+
+})();
+</script>
 </body>
 
 </html>
